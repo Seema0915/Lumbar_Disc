@@ -91,10 +91,63 @@ MainFolder/
 5. **Run `HDRChange` to generate `.hdr` and `.img` files.**
 6. **Use the `HDR_OUTPUT` folder as input for your deep learning model.**
 
----
+
 
 ## Additional Notes
 
 - **Ensure all scripts and dependencies are installed before running.**
 - **Always check the output folder structure and file integrity after each step.**
 - **Refer to the documentation of each script for detailed usage and parameter options.**
+
+- # Lumbar MRI Data Processing and Machine Learning
+
+This repository contains scripts and instructions for processing lumbar MRI clinical datasets. The pipeline includes steps for organizing MRI DICOM images, extracting and enriching patient data using the RadiAnt app, and preparing the dataset for machine learning.
+
+---
+
+## Table of Contents
+
+- [Dataset Creation](#dataset-creation)
+- [Data Processing Pipeline](#data-processing-pipeline)
+- [Folder Structure](#folder-structure)
+- [How to Execute the Code](#how-to-execute-the-code)
+- [Additional Notes](#additional-notes)
+
+---
+
+## Dataset Creation
+
+### 1. Initial Data
+
+- **MRI Images:** All patient MRI scans are in DICOM format.
+- **Clinical Reports:** Each patient has an associated clinical report.
+
+### 2. Data Extraction with RadiAnt
+
+- **Extraction Tool:** Use the **RadiAnt DICOM Viewer** to export each patient's MRI scans into individual folders, each named with the patient’s ID[2][3].
+  - **Result:** A folder structure (e.g csv file)
+
+### 3. Enriching the Dataset
+
+- **From Clinical Reports:** Manually add the following columns to the dataset:in csv file
+  1. **Symptoms**
+  2. **Changed Observation**
+  3. **Likely Disease**
+  4. **Disease**
+  5. **Finding/Observation**
+  6. **Impression**
+
+- **Result:** The extracted dataset now contains both added attributes and enriched clinical information.
+
+### 4. NLP-Based Data Enrichment
+
+- **Natural Language Processing:** Apply NLP techniques to the clinical reports to extract additional structured information.
+- **Final Dataset:** The final dataset includes all original columns plus any additional information extracted via NLP.
+
+---
+
+## Folder Structure
+
+After processing, your folder structure will look like this:final Patient_Spine_NLP2_Summary
+
+
